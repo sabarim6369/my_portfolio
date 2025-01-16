@@ -77,7 +77,7 @@ const Home = () => {
             <TypewriterText texts={roles} />
           </div>
 
-          <p className="text-lg text-gray-300 leading-relaxed">
+          <p className="text-lg text-gray-300 leading-relaxed ">
             I'm a passionate developer with expertise in building scalable web
             applications. I enjoy working with modern frameworks and solving
             complex problems creatively.

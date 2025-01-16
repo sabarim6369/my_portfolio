@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/navbar/navbar';
-import video1 from './assets/4328789-uhd_3840_2160_25fps.mp4';
+import video1 from './assets/bgvideo.mp4';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';

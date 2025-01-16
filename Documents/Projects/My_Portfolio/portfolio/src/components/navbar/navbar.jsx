@@ -31,11 +31,13 @@ const Navbar = () => {
     >
       <div className="w-full h-[100px] relative flex items-center justify-between px-6 lg:px-16">
       <div className="flex items-center space-x-3">
-  <Code className="text-red-500 w-10 h-10" />
-  <span className="text-white text-4xl font-bold tracking-wider relative">
+  <Code className="text-red-500 w-10 h-10 " />
+  <span className="text-white text-4xl font-bold tracking-wider relative ">
     SABARI
     <span className="text-red-500 animate-pulse absolute -top-2 -right-4 text-5xl">.</span>
   </span>
+  <span className='motion-preset-spin motion-duration-75 text-3xl mt-1'>⭐</span>
+
 </div>
 
 
