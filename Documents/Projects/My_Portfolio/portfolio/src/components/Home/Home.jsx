@@ -52,7 +52,6 @@ const Home = () => {
     "Problem Solver"
   ];
 
-  // Smooth scroll to the contact section
   const handleHireMeClick = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -67,8 +66,9 @@ const Home = () => {
         {/* Left Section */}
         <div className="w-full md:w-1/2 flex flex-col items-start space-y-6">
           <div className="space-y-2">
-            <h2 className="text-red-500 text-xl font-medium">Hello, I'm</h2>
-            <h1 className="text-5xl md:text-6xl font-bold text-white">
+            <h2 className="text-red-500 text-xl font-medium motion-preset-confetti motion-duration-2000">Hello, I'm</h2>
+            <h1 className="text-5xl md:text-6xl font-bold text-white motion-preset-blink motion-duration-1500 
+">
               Sabari
             </h1>
           </div>
@@ -85,7 +85,7 @@ const Home = () => {
 
           <div className="flex space-x-4 pt-4">
             <button
-              onClick={handleHireMeClick} // Trigger smooth scroll
+              onClick={handleHireMeClick} 
               className="px-8 py-3 bg-red-500 text-white rounded-full hover:bg-red-600 transition-all duration-300 transform hover:scale-105"
             >
               Hire Me
@@ -93,7 +93,7 @@ const Home = () => {
             <a
   href={resume}
   download
-  className="px-8 py-3 border-2 border-red-500 text-red-500 rounded-full hover:bg-red-500 hover:text-white transition-all duration-300 transform hover:scale-105"
+  className="px-8 py-3 border-2 border-red-500 text-red-500 rounded-full hover:bg-red-500 hover:text-white transition-all duration-300 transform hover:scale-105 "
 >
   Download CV
 </a>
@@ -102,30 +102,24 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Right Section */}
         <div className="w-full md:w-1/2 flex justify-center">
           <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
-            {/* Rotating Gradient Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-purple-500/20 rounded-full animate-rotate-gradient"></div>
 
-            {/* Glowing Circle */}
             <div className="absolute inset-0 rounded-full border-4 border-transparent bg-gradient-to-br from-red-500 to-purple-500 opacity-50 animate-glow"></div>
 
-            {/* Profile Image */}
             <img
               src={sabarisimage}
               alt="Profile"
               className="w-full h-full rounded-full object-contain shadow-2xl animate-float"
             />
 
-            {/* Animated Shadow */}
             <div className="absolute inset-0 rounded-full border-4 border-red-500/30 animate-shadow"></div>
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        /* Rotate the gradient */
         @keyframes rotate-gradient {
           0% {
             transform: rotate(0deg);
@@ -135,7 +129,6 @@ const Home = () => {
           }
         }
 
-        /* Glow Effect */
         @keyframes glow {
           0%, 100% {
             box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.4);
@@ -145,7 +138,6 @@ const Home = () => {
           }
         }
 
-        /* Floating Animation */
         @keyframes float {
           0%, 100% {
             transform: translateY(0);
@@ -155,7 +147,6 @@ const Home = () => {
           }
         }
 
-        /* Shadow Animation */
         @keyframes shadow-pulse {
           0%, 100% {
             box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.4);
@@ -165,7 +156,6 @@ const Home = () => {
           }
         }
 
-        /* Apply Animations */
         .animate-rotate-gradient {
           animation: rotate-gradient 10s linear infinite;
         }

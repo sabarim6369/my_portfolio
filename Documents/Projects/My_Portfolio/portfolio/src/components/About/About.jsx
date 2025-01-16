@@ -98,10 +98,10 @@ const About = () => {
       <div className="container mx-auto px-4">
         {/* About Me Section */}
         <div className="max-w-6xl mx-auto mb-20">
-          <h2 className="text-4xl font-bold text-center text-white mb-4">
+          <h2 className="text-4xl font-bold text-center text-white mb-4 motion-preset-pulse">
             About <span className="text-red-500">Me</span>
           </h2>
-          <div className="w-24 h-1 bg-red-500 mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-red-500 mx-auto mb-8 motion-preset-stretch "></div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="relative group">

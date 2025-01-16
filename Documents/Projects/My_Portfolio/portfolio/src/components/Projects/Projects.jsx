@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { Github, ExternalLink, Briefcase, Code } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';  
 import { Link } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState('freelance');
-
+  const { ref: headingRef, inView: headingInView } = useInView({ triggerOnce: false, threshold: 0.3 });
   const freelanceProjects = [
     {
       title: 'Sokkai - Clothing E-Commerce Website',
@@ -76,12 +77,16 @@ const Projects = () => {
   return (
     <section id="projects" className="relative py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-white mb-4">
+      <h2
+          ref={headingRef}
+          className={`text-4xl font-bold text-center text-white mb-4 transition-all duration-1000 ${
+            headingInView ? 'motion-preset-slide-right' : 'opacity-0 translate-x-[-50px]'
+          }`}
+        >
           My <span className="text-red-500">Projects</span>
         </h2>
         <div className="w-24 h-1 bg-red-500 mx-auto mb-8"></div>
 
-        {/* Project Type Tabs */}
         <div className="flex justify-center mb-12">
           <div className="bg-gray-800 rounded-full p-1">
             <button
@@ -91,7 +96,7 @@ const Projects = () => {
               <div className="flex items-center space-x-2">
                 <Briefcase className="w-4 h-4" />
                 <span>Freelance Projects</span>
-              </div>
+              </div>  
             </button>
             <button
               onClick={() => setActiveTab('personal')}
@@ -105,11 +110,9 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {activeProjects.map((project, index) => (
             <div key={index} className="group relative bg-gray-800 rounded-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2">
-              {/* Project Image with Overlay */}
               <div className="relative h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-10"></div>
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
@@ -120,14 +123,12 @@ const Projects = () => {
                 )}
               </div>
 
-              {/* Project Content */}
               <div className="p-6 space-y-4">
                 <h3 className="text-xl font-semibold text-white group-hover:text-red-500 transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-gray-400 text-sm line-clamp-3">{project.description}</p>
 
-                {/* Technologies */}
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
                     <span key={techIndex} className="px-3 py-1 text-xs font-medium text-red-500 bg-red-500/10 rounded-full">
@@ -136,7 +137,6 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* Links */}
                 <div className="flex space-x-4 pt-4">
                   <a href={project.github}  className="flex items-center space-x-2 text-gray-400 hover:text-red-500 transition-colors">
                     <Github className="w-5 h-5" />
@@ -149,7 +149,6 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Hover Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           ))}
