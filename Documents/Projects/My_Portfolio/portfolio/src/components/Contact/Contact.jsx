@@ -1,50 +1,66 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, Loader2 } from 'lucide-react';
-import axios from 'axios';
 import { useInView } from 'react-intersection-observer';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
   });
-  const [loading, setLoading] = useState(false);  
-  const { ref: headingRef, inView: headingInView } = useInView({ triggerOnce: false, threshold: 0.3 });
+  const [loading, setLoading] = useState(false);
+  const { ref: headingRef, inView: headingInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.3,
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);  
+    setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/contact", formData);
-      console.log(response.data); 
-      
+      const response = await fetch("http://localhost:5000/contact", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      const data = await response.json();
+      console.log(data);
+
       setFormData({
         name: '',
         email: '',
         subject: '',
-        message: ''
+        message: '',
       });
-      
+
       alert('Message sent successfully!');
     } catch (error) {
       console.error('Error sending message:', error);
       alert('There was an error sending the message. Please try again.');
     } finally {
-      setLoading(false);  
+      setLoading(false);
     }
   };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   return (
     <section id="contact" className="relative py-20 bg-black">
       <div className="container mx-auto px-4">
-      <h2
+        <h2
           ref={headingRef}
           className={`text-4xl font-bold text-center text-white mb-4 transition-all duration-1000 ${
             headingInView ? 'motion-preset-slide-right' : 'opacity-0 translate-x-[-50px]'
@@ -93,23 +109,22 @@ const Contact = () => {
               <div className="pt-8 border-t border-gray-700">
                 <h4 className="text-white font-medium mb-4">Follow Me</h4>
                 <div className="flex space-x-4">
-                <a
-  href="https://www.linkedin.com/in/sabarim6369/"
-  target="_blank"  // Open in new tab
-  rel="noopener noreferrer"  // Security recommendation when using target="_blank"
-  className="w-10 h-10 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 hover:bg-red-500 hover:text-white transition-colors duration-300"
->
-  <Linkedin className="w-5 h-5" />
-</a>
-<a
-  href="https://github.com/sabarim6369"
-  target="_blank"  // Open in new tab
-  rel="noopener noreferrer"  // Security recommendation when using target="_blank"
-  className="w-10 h-10 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 hover:bg-red-500 hover:text-white transition-colors duration-300"
->
-  <Github className="w-5 h-5" />
-</a>
-
+                  <a
+                    href="https://www.linkedin.com/in/sabarim6369/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 hover:bg-red-500 hover:text-white transition-colors duration-300"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="https://github.com/sabarim6369"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 hover:bg-red-500 hover:text-white transition-colors duration-300"
+                  >
+                    <Github className="w-5 h-5" />
+                  </a>
                   <a
                     href="#"
                     className="w-10 h-10 bg-red-500/10 rounded-full flex items-center justify-center text-red-500 hover:bg-red-500 hover:text-white transition-colors duration-300"
@@ -121,7 +136,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="bg-gray-800 rounded-xl p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -192,10 +206,10 @@ const Contact = () => {
               <button
                 type="submit"
                 className="w-full bg-red-500 text-white rounded-lg px-6 py-3 flex items-center justify-center space-x-2 hover:bg-red-600 transition-colors duration-300"
-                disabled={loading}  // Disable button when loading
+                disabled={loading}
               >
                 {loading ? (
-                  <Loader2 className="w-5 h-5 animate-spin" /> // Show loader when loading
+                  <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
                   <Send className="w-5 h-5" />
                 )}
