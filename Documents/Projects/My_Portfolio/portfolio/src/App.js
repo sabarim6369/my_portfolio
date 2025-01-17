@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/navbar/navbar';
-// import video1 from './assets/bgvideo.mp4';
+import video1 from './assets/bgvideo.mp4';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
@@ -11,7 +11,7 @@ const App = () => {
     <div className="relative min-h-screen w-full">
       {/* Fixed video container */}
       <div className="fixed top-0 left-0 w-full h-full">
-        {/* <video
+         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
           autoPlay
           loop
@@ -22,7 +22,7 @@ const App = () => {
           <source src={video1} type="video/webm" />
           <source src={video1} type="video/ogg" />
           Your browser does not support the video tag.
-        </video> */}
+        </video> 
       </div>
 
       {/* Scrollable content */}
