@@ -24,12 +24,13 @@ var sender = nodemailer.createTransport({
 text:message 
  };
   
-  sender.sendMail(composeMail, (error, info) => {
-    if (error) {
-      return res.status(500).send('Something went wrong.');
-    }
-    res.status(200).send('Message sent successfully!');
-  });
+ sender.sendMail(composeMail, (error, info) => {
+  if (error) {
+    return res.status(500).json({ success: false, message: 'Something went wrong.' });
+  }
+  res.status(200).json({ success: true, message: 'Message sent successfully!' });
+});
+
 });
 
 app.listen(5000, () => {

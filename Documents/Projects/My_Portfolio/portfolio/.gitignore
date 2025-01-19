@@ -69,8 +69,7 @@ WPS Cloud Files/
 *.bak
 
 # PDFs and other documents
-*.pdf
-*.docx
+
 *.ppt
 *.txt
 
