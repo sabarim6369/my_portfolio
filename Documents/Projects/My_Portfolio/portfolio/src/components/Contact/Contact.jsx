@@ -18,7 +18,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);  
     try {
-      const response = await axios.post("https://my-portfolio-1-n68t.onrender.com/contact", formData);
+      const response = await axios.post("https://my-portfolio-7tse.onrender.com/contact", formData);
       console.log(response.data); 
       
       setFormData({
