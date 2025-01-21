@@ -63,7 +63,6 @@ const Home = () => {
     <div className="relative flex items-center justify-center min-h-screen" id="home">
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="relative z-20 flex flex-col md:flex-row items-center w-11/12 lg:w-10/12 space-y-8 md:space-y-0 md:space-x-10 py-20">
-        {/* Left Section */}
         <div className="w-full md:w-1/2 flex flex-col items-start space-y-6">
           <div className="space-y-2">
             <h2 className="text-red-500 text-xl font-medium motion-preset-confetti motion-duration-2000">Hello, I'm</h2>

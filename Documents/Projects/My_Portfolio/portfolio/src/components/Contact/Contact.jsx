@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, Loader2 } from 'lucide-react';
 import axios from 'axios';
 import { useInView } from 'react-intersection-observer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -15,7 +18,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);  
     try {
-      const response = await axios.post("https://my-portfolio-1-n68t.onrender.com/contact", formData);
+      const response = await axios.post("https://my-portfolio-7tse.onrender.com/contact", formData);
       console.log(response.data); 
       
       setFormData({
@@ -25,14 +28,23 @@ const Contact = () => {
         message: ''
       });
       
-      alert('Message sent successfully!');
-    } catch (error) {
+      toast.success('Message sent successfully!', {
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+          } catch (error) {
       console.error('Error sending message:', error);
-      alert('There was an error sending the message. Please try again.');
+      toast.error('There was an error sending the message. Please try again.');
     } finally {
       setLoading(false);  
     }
   };
+  
 
   const handleChange = (e) => {
     setFormData({
@@ -43,6 +55,18 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative py-20 bg-black">
+       <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="colored"
+    />
       <div className="container mx-auto px-4">
       <h2
           ref={headingRef}

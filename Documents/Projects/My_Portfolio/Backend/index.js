@@ -20,7 +20,7 @@ var sender = nodemailer.createTransport({
   var composeMail = {
     from: email,
     to: "sabarim6369@gmail.com",
-    subject: `New Message from ${name}: ${subject}`,
+    subject: `New Message from ${name}: ${subject} whose email is ${email}`,
 text:message 
  };
   
