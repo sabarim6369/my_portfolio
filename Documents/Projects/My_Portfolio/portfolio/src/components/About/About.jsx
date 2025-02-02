@@ -96,7 +96,6 @@ const About = () => {
   return (
     <section id="about" className="relative py-20 bg-gradient-to-b from-black via-gray-900 to-black">
       <div className="container mx-auto px-4">
-        {/* About Me Section */}
         <div className="max-w-6xl mx-auto mb-20">
           <h2 className="text-4xl font-bold text-center text-white mb-4 motion-preset-pulse">
             About <span className="text-red-500">Me</span>
