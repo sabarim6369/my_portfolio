@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import sabarisimage from "../../assets/sabarisimage.jpg"
-import resume from "../../assets/sabarisresume1.pdf"
+import resume from "../../assets/Sabaris resume.pdf"
 const TypewriterText = ({ texts }) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
