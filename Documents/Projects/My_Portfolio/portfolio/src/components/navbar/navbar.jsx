@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Code } from 'lucide-react';
-import resume from "../../assets/sabarisresume1.pdf"
+import resume from "../../assets/Sabaris resume.pdf"
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
