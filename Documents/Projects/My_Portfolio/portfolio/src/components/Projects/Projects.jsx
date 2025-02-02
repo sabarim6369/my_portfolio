@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink, Briefcase, Code } from 'lucide-react';
-
 import { useInView } from 'react-intersection-observer';
 
 const Projects = () => {
@@ -12,8 +11,8 @@ const Projects = () => {
       description: 'An e-commerce platform for clothing with seamless shopping experience and real-time inventory management.',
       image: 'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       technologies: ['Next.js', 'MongoDB'],
-      github: '#',
-      live: 'https://sokkai.vercel.app/',
+      github: 'https://github.com/sokkai642/client-sokkai.git',
+      live: 'https://ecommerse-sokkai.vercel.app/',
       client: 'Sokkai'
     },
     {
@@ -21,19 +20,30 @@ const Projects = () => {
       description: 'A transport management system for MIL Transport, including driver allocation and delivery maintenance.',
       image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       technologies: ['React', 'MongoDB', 'Express','Node.js'],
-      github: '#',
+      github: 'https://github.com/Dharanish-AM/MILVER.git',
       live: '#',
       client: 'Milver'
+    },
+    {
+      title: 'Feedback Management System',
+      description: 'A feedback management system for tracking and managing feedback sessions, assignments, and communication with tutors and students.',
+      image: 'https://media.mopinion.com/wp-content/uploads/2022/03/27133400/customer-feedback-blog-min.jpg',
+      technologies: ['React', 'MongoDB', 'Express', 'Node.js'],
+      github: 'https://github.com/sabarim6369/feedback_management.git',
+      live: 'https://feedback-management-iota.vercel.app/',
+      client: 'Feedback Management'
     },
     {
       title: 'Lead Management - Upcoming Project',
       description: 'A lead management system for tracking staff assignments, communication, and call duration.',
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       technologies: ['React', 'MongoDB', 'Express','Node.js'],
-      github: '#',
+      github: 'https://github.com/vijayguhan10/Leadmanagement.git',
       live: '#',
       client: 'Lead Management'
-    }
+    },
+  
+    
   ];
 
   const personalProjects = [
@@ -42,15 +52,15 @@ const Projects = () => {
         description: 'A comprehensive platform designed to manage and track events happening in the college, enabling  faculty to create, organize, and promote events seamlessly.',
         image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
         technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-        github: '#',
-        live: '#'
+        github: 'https://github.com/vijayguhan10/EventManagement.git',
+        live: 'https://event-management-swart-kappa.vercel.app/'
       },      
     {
       title: 'Campusway - College Guidance',
       description: 'A platform that helps students after 12th grade to explore colleges and exam preparation options.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+      image: 'https://campusprovo.com/wp-content/uploads/2021/07/CWAY6.jpg',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-      github: '#',
+      github: 'https://github.com/sabarim6369/campus_way.git',
       live: '#'
     },
     {
@@ -58,7 +68,7 @@ const Projects = () => {
       description: 'A tool for managing employee duty schedules and attendance efficiently.',
       image: 'https://images.unsplash.com/photo-1587560699334-cc4ff634909a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       technologies: ['React Native', 'Express','Node.js', 'MongoDB'],
-      github: '#',
+      github: 'https://github.com/sabarim6369/odform_reactnative.git',
       live: '#'
     },
     {
@@ -66,7 +76,7 @@ const Projects = () => {
       description: 'A health platform that detects diseases and provides personalized diet plans using machine learning.',
       image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       technologies: ['Python','Html','CSS','javascript'],
-      github: '#',
+      github: 'https://github.com/sabarim6369/wellness_360_using_python.git',
       live: '#'
     },
   ];
@@ -137,18 +147,19 @@ const Projects = () => {
                 </div>
 
                 <div className="flex space-x-4 pt-4">
-                  <a href={project.github}  className="flex items-center space-x-2 text-gray-400 hover:text-red-500 transition-colors">
-                    <Github className="w-5 h-5" />
-                    <span>Code</span>
-                  </a>
-                  <a href={project.live} className="flex items-center space-x-2 text-gray-400 hover:text-red-500 transition-colors">
+                <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-400 hover:text-red-500 transition-colors">
+  <Github className="w-5 h-5" />
+  <span className="cursor-pointer">Code</span>
+</a>
+
+                  <a href={project.live} className="flex items-center space-x-2 text-gray-400 hover:text-red-500 transition-colors" target="_blank">
                     <ExternalLink className="w-5 h-5" />
                     <span>Live Demo</span>
                   </a>
                 </div>
               </div>
 
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             </div>
           ))}
         </div>
